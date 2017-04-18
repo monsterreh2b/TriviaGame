@@ -13,7 +13,7 @@
 //start game
 $("#start").on("click",run);
 
-$("#submit").on("click",run);
+$("#submit").on("click",done);
  
   
 function handleClick(){         
@@ -45,12 +45,8 @@ function decrement(){
 
 
 	if (number === 0){
-
-		stop();
-		alert("You've run out of time");
-		handleClick();
-		end();
-    changeTwo();
+    done();
+		
 	}
 }
 
@@ -73,7 +69,11 @@ function changeTwo(){
 	change();
 }
 
-
+function runTwo(){
+  number = 20;
+  intervalId = setInterval(decrement, 1000);
+  change();
+}
 
 
 function stop(){
@@ -87,8 +87,11 @@ function check(){
 
 }
 
-function end(){
- 	number ==20;
- 	
- }
+function done(){
+  stop();
+    alert("You've run out of time");
+    handleClick();
+    number ==20;
+    changeTwo();
+}
 

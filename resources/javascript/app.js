@@ -28,7 +28,8 @@ for(var i = 1; i <= 6; i++) {
       	inCorrectCount++;
       }
     }
-if (radios.checked==false){
+
+    if (radios.checked===false){
         unAnsweredCount++;
       }  
    }
@@ -87,11 +88,16 @@ function check(){
 
 }
 
+
+
 function done(){
   stop();
     alert("You've run out of time");
     handleClick();
-    number ==20;
+    number =20;
     changeTwo();
+    correctCount=0;
+   inCorrectCount=0;
+   unAnsweredCount=0;
 }
 

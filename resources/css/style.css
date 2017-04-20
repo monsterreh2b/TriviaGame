@@ -1,3 +1,15 @@
 #questionsTwo, #endGame{
 	display: none;
 }
+
+body{
+	/*width: 100%;
+	height: 576px;*/
+	background-image: url(../images/7345d1088900a7e09bc2d552c161ed6b_basketball-court-wallpapers-hd-basketball-court-background-clipart_2000-1328.jpeg);
+	background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}

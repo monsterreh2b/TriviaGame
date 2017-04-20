@@ -8,13 +8,10 @@
    var inCorrectCount=0;
    var unAnsweredCount=0;
 
- 
+ var audio = new Audio("https://www.amazon.com/Chicago-Bulls-Sirius-stadium-Version/dp/B00CFMXT4K");
 
 //start game
-$("#start").on("click",run);
 
-$("#submit").on("click",done);
- 
   
 function handleClick(){         
          
@@ -68,6 +65,7 @@ function changeTwo(){
  function run(){
 	intervalId = setInterval(decrement, 1000);
 	change();
+	audio.play();
 }
 
 function runTwo(){
@@ -100,4 +98,18 @@ function done(){
    inCorrectCount=0;
    unAnsweredCount=0;
 }
+
+function doneTwo(){
+	handleClick();
+    number =20;
+    changeTwo();
+    correctCount=0;
+   inCorrectCount=0;
+   unAnsweredCount=0;
+}
+
+$("#start").on("click",run);
+
+$("#submit").on("click",doneTwo);
+
 

@@ -1,6 +1,6 @@
 
 //set number to 1 min 30s
-   var number = 20;
+   var number = 30;
 
    var intervalId;
 
@@ -72,7 +72,7 @@ function changeTwo(){
 }
 
 function runTwo(){
-  number = 20;
+  number = 30;
   intervalId = setInterval(decrement, 1000);
   change();
 }
@@ -85,7 +85,7 @@ function stop(){
 
 function stopAfterSubmit(){
 	clearInterval(intervalId);
-	number = 20;
+	number = 30;
 }
 function check(){
 	var selectedOption = $("input:answerChoices[name=option]:checked").val();
@@ -99,7 +99,7 @@ function done(){
   stop();
     alert("You've run out of time");
     handleClick();
-    number =20;
+    number =30;
     changeTwo();
     correctCount=0;
    inCorrectCount=0;
@@ -109,7 +109,7 @@ function done(){
 function doneTwo(){
 	
 	handleClick();
-    number =20;
+    number =30;
     changeTwo();
     correctCount=0;
    inCorrectCount=0;

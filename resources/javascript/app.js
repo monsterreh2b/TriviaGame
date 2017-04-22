@@ -6,8 +6,8 @@
 
    var correctCount=0;
    var inCorrectCount=0;
-   var unAnsweredCount=0;
-
+   var unAnsweredCount=6;
+    
  // var audio = new Audio("https://www.amazon.com/Chicago-Bulls-Sirius-stadium-Version/dp/B00CFMXT4K");
 
 //start game
@@ -24,16 +24,19 @@ for(var i = 1; i <= 6; i++) {
       }else if (answerChoices.id== "inCorrect" && answerChoices.checked){
       	inCorrectCount++;
       }
-    }
+    
+ 
+    if (answerChoices.checked){
+        unAnsweredCount--;
+        // console.log(temp);
+      }//end of j loop
 
-    if (eachQuestion.checked===false){
-        unAnsweredCount++;
-      }  
+     }
    }
 
       alert("Correct Responses: " + correctCount);
        alert("InCorrect Responses: " + inCorrectCount);
-    
+    	alert("Unanswered Responses: " + unAnsweredCount);
   }
 
 function decrement(){
@@ -80,6 +83,10 @@ function stop(){
 	clearInterval(intervalId);
 }
 
+function stopAfterSubmit(){
+	clearInterval(intervalId);
+	number = 20;
+}
 function check(){
 	var selectedOption = $("input:answerChoices[name=option]:checked").val();
 	
@@ -96,7 +103,7 @@ function done(){
     changeTwo();
     correctCount=0;
    inCorrectCount=0;
-   unAnsweredCount=0;
+   unAnsweredCount=6;
 }
 
 function doneTwo(){
@@ -106,12 +113,12 @@ function doneTwo(){
     changeTwo();
     correctCount=0;
    inCorrectCount=0;
-   unAnsweredCount=0;
+   unAnsweredCount=6;
 }
 
 $("#start").on("click",run);
 
-$(document).on("click","#questionsTwo", function(event) {
+$(document).on("click","#questionsTwo", function() {
 	event.preventDefault();
     handleClick();
     changeTwo();

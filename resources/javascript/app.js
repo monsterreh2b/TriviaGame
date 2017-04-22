@@ -8,7 +8,7 @@
    var inCorrectCount=0;
    var unAnsweredCount=0;
 
- var audio = new Audio("https://www.amazon.com/Chicago-Bulls-Sirius-stadium-Version/dp/B00CFMXT4K");
+ // var audio = new Audio("https://www.amazon.com/Chicago-Bulls-Sirius-stadium-Version/dp/B00CFMXT4K");
 
 //start game
 
@@ -16,17 +16,17 @@
 function handleClick(){         
          
 for(var i = 1; i <= 6; i++) {
-    var radios = document.getElementsByName('question'+i);
-    for(var j = 0; j < radios.length; j++) {
-      var radio = radios[j];
-      if(radio.id== "correct" && radio.checked) {
+    var eachQuestion = document.getElementsByName('question'+i);
+    for(var j = 0; j < eachQuestion.length; j++) {
+      var answerChoices = eachQuestion[j];
+      if(answerChoices.id== "correct" && answerChoices.checked) {
         correctCount++;
-      }else if (radio.id== "inCorrect" && radio.checked){
+      }else if (answerChoices.id== "inCorrect" && answerChoices.checked){
       	inCorrectCount++;
       }
     }
 
-    if (radios.checked===false){
+    if (eachQuestion.checked===false){
         unAnsweredCount++;
       }  
    }
@@ -65,7 +65,7 @@ function changeTwo(){
  function run(){
 	intervalId = setInterval(decrement, 1000);
 	change();
-	audio.play();
+	// audio.play();
 }
 
 function runTwo(){
@@ -81,7 +81,7 @@ function stop(){
 }
 
 function check(){
-	var selectedOption = $("input:radio[name=option]:checked").val();
+	var selectedOption = $("input:answerChoices[name=option]:checked").val();
 	
 
 }
@@ -100,6 +100,7 @@ function done(){
 }
 
 function doneTwo(){
+	
 	handleClick();
     number =20;
     changeTwo();
@@ -110,6 +111,8 @@ function doneTwo(){
 
 $("#start").on("click",run);
 
-$("#submit").on("click",doneTwo);
-
-
+$(document).on("click","#questionsTwo", function(event) {
+	event.preventDefault();
+    handleClick();
+    changeTwo();
+});
